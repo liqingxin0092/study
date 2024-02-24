@@ -1,0 +1,11 @@
+﻿  FileName.c
+D:\vs练手\FileName.c(10,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“time_t”
+  D:\vs练手\FileName.c(10,9):
+  请考虑在格式字符串中使用“%lld”
+  D:\vs练手\FileName.c(10,9):
+  请考虑在格式字符串中使用“%Id”
+  D:\vs练手\FileName.c(10,9):
+  请考虑在格式字符串中使用“%I64d”
+  
+D:\vs练手\FileName.c(7,8): warning C4101: “time_str”: 未引用的局部变量
+  vs练手.vcxproj -> D:\vs练手\x64\Debug\vs练手.exe
