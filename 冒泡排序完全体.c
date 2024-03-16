@@ -6,7 +6,7 @@ void bubble_sort(int *arr,int size)
 	int flag;
 	for (int i = 0; i < size - 1; i++)
 	{
-		flag = 1;                                //ÓÅ»¯
+		flag = 1;                                //ä¼˜åŒ–
 		for (int j = 0; j < size - 1 - i; j++)
 		{
 			if (*(arr + j) > *(arr + j + 1))
@@ -33,16 +33,16 @@ void swap(char* a,char* b,int width)
 		*(b+i) = t;
 	}
 }
-int  cmp(const void* e1, const void* e2)          //±È½Ïº¯Êı
+int  cmp(const void* e1, const void* e2)          //æ¯”è¾ƒå‡½æ•°
 {
-	return *(int*)e2 - *(int*)e1;     //Á½¸öÊı±È½Ï£¬×îºó·µ»ØÕıÊı£¬0£¬¸ºÊıÎª±È½ÏÒÀ¾İ
+	return *(int*)e2 - *(int*)e1;     //ä¸¤ä¸ªæ•°æ¯”è¾ƒï¼Œæœ€åè¿”å›æ­£æ•°ï¼Œ0ï¼Œè´Ÿæ•°ä¸ºæ¯”è¾ƒä¾æ®          //æ ¹æ®éœ€æ±‚æ›´æ”¹
 }
 void bubble_sort_plus(void* arr, int size, int width, int (*cmp_function)(void* , void* ))
 {
 	int flag;
 	for (int i = 0; i < size - 1; i++)
 	{
-		flag = 1;                                //ÓÅ»¯
+		flag = 1;                                //ä¼˜åŒ–
 		for (int j = 0; j < size - 1 - i; j++)
 		{
 			if (cmp_function((char*)arr + j * width, (char*)arr + (j + 1) * width)<0)
@@ -84,7 +84,7 @@ struct stu
 int size2 = sizeof(stu) / sizeof(stu[0]);
 int cmp_by_name(const void *e1,const void *e2)
 {
-	return strcmp(((struct stu*)e2)->name, ((struct stu*)e1)->name);//1¶Ô1¶ÔµÄ±È
+	return strcmp(((struct stu*)e2)->name, ((struct stu*)e1)->name);//1å¯¹1å¯¹çš„æ¯”
 }
 int cmp_by_age(const void* e1, const void* e2)
 {
@@ -106,7 +106,7 @@ void display_qsort()
 int main()
 {
 	//bubble_sort(arr, size);
-	//qsort(arr,size1,sizeof(arr[0]),cmp);    //Êı×éÊ×µØÖ·£¬ÔªËØ¸öÊı£¬²½¾à£¬Ò»¸ö¾ö¶¨Ë³Ğòº¯Êı
+	//qsort(arr,size1,sizeof(arr[0]),cmp);    //æ•°ç»„é¦–åœ°å€ï¼Œå…ƒç´ ä¸ªæ•°ï¼Œæ­¥è·ï¼Œä¸€ä¸ªå†³å®šé¡ºåºå‡½æ•°
 	//display_bubble();
 	//display_qsort();
 	bubble_sort_plus(arr, size1, sizeof(arr[0]), cmp);
