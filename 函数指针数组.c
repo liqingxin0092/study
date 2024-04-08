@@ -15,7 +15,7 @@ int mod(int a, int b)
 int (*arr[4])(int , int ) = {0,&add,&sub,&mod};
 void menu()
 {
-	printf("0.ÍË³ö 1.¼Ó·¨ 2.¼õ·¨ 3.³Ë·¨\n");
+	printf("0.é€€å‡º 1.Â¼Ã“Â·Â¨ 2.Â¼ÃµÂ·Â¨ 3.Â³Ã‹Â·Â¨\n");
 }
 int main()
 {
