@@ -15,7 +15,7 @@ int mod(int a, int b)
 int (*arr[4])(int , int ) = {0,&add,&sub,&mod};
 void menu()
 {
-	printf("0.退出 1.¼Ó·¨ 2.¼õ·¨ 3.³Ë·¨\n");
+      printf("0.退出 1.加法 2.减法 3.乘法\n");
 }
 int main()
 {
