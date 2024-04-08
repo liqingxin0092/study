@@ -3,12 +3,12 @@
 
 int main()
 {
-	//¿ª±Ù
+	//å¼€è¾Ÿ
 	int* p = (int *)malloc(40);
 	if (p == NULL)
 		return 1;
 
-	//À©ÈÝ
+	//æ‰©å®¹
 	int* ptr = (int*)realloc(p,80);
 	if (ptr == NULL)
 		return 2;
@@ -18,7 +18,7 @@ int main()
 		ptr = NULL;
 	}
 	 
-	//Ê¹ÓÃ
+	//ä½¿ç”¨
 	for (int i = 0; i < 20; i++)
 	{
 		p[i] = i;
@@ -29,7 +29,7 @@ int main()
 		printf("%d ",p[i]);
 	}
 
-	//ÊÍ·Å
+	//é‡Šæ”¾
 	free(p);
 
 	return 0;
