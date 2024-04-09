@@ -31,6 +31,6 @@ int main()
 
 	//释放
 	free(p);
-
+	p=NULL;
 	return 0;
 }
