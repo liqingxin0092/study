@@ -2,26 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+#pragma execution_character_set("utf-8")  
+
 void test()
 {
-	int m, n,t,max,min,t_m,t_n;
-	scanf("%d %d", &m,&n);
-	t_m = m;
-	t_n = n;
+	int n;
+	while (scanf("%d", &n) != EOF)
+	{
 
-	!(m < n) || (t = m, m = n, n = t);  //如果m<n就
 
-	do {
-		t = n;
-		n = m % n;
-		m = t;
 	}
-		while (n);
-		
-	max = m;
-	min = t_m * t_n / max;
-	printf("%d",max+min);
-
 }
 int main()
 {
