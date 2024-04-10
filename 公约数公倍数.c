@@ -9,7 +9,7 @@ void test()
 	t_m = m;
 	t_n = n;
 
-	!(m < n) || (t = m, m = n, n = t);  //Èç¹ûm<n,¾Í½»»»¡£
+	!(m < n) || (t = m, m = n, n = t);  //å¦‚æžœm<nå°±
 
 	do {
 		t = n;
