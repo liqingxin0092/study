@@ -22,15 +22,58 @@ int InitContact(Contact* p)
 	}
 	p->capacity = INIT_NUM;
 
+	//加载文件信息到通讯录中
+	LoadContact(p);
 	return 0;
 }
 
+static void zengrong(Contact* p)
+{
+	//增容
+	if (p->count == p->capacity)
+	{
+		People* ptr = (People*)realloc(p->data, (p->capacity + ADD_NUM) * sizeof(People));
+		if (ptr == NULL)
+		{
+			printf("%s", strerror(errno));
+			return 1;
+		}
+		else
+		{
+			p->data = ptr;
+			ptr = NULL;
+			p->capacity += ADD_NUM;
+			printf("增容\n");
+		}
+	}
+}
 void distory_data(Contact* p)
 {
 	assert(p);
 	free(p->data);
 	p->data = NULL;
 
+}
+//加载
+int LoadContact(Contact* p)
+{
+	assert(p);
+	FILE* pf = fopen("D:\\OneDrive\\Desktop\\库\\study\\动态通讯录\\数据保存.txt", "rb");
+	if (pf == NULL)
+		return 1;
+
+	People temp = { 0 };
+	while (fread(&temp, sizeof(People), 1, pf) == 1)
+	{
+		zengrong(p);
+		p->data[p->count] = temp;
+		p->count++;
+	}
+
+
+
+	fclose(pf);
+	pf == NULL;
 }
 //静态版本
 //void add(Contact* p)
@@ -56,30 +99,31 @@ void distory_data(Contact* p)
 //	printf("增加成功！\n");
 //}
 
+//保存 数据
+int  save(const Contact* p)
+{
+	assert(p);
+	FILE* pf = fopen("D:\\OneDrive\\Desktop\\库\\study\\动态通讯录\\数据保存.txt","wb");
+	if (pf == NULL)
+		return 1;
 
+	int i = 0;
+	for (i = 0; i < p->count; i++)
+	{
+		fwrite(p->data+i,sizeof(People),1,pf);
+	}
+
+
+	fclose(pf);
+	pf == NULL;
+}
 //动态版本
 int  add(Contact* p)
 {
 	assert(p);
 
 	//增容
-	if (p->count == p->capacity)
-	{
-		People* ptr= (People*)realloc(p->data, (p->capacity + ADD_NUM) * sizeof(People));
-		if (ptr == NULL)
-		{
-			printf("%s", strerror(errno));
-			return 1;
-		}
-		else
-		{
-			p->data = ptr;
-			ptr = NULL;
-			p->capacity += ADD_NUM;
-			printf("增容\n");
-		}
-	}
-
+	zengrong(p);
 
 	printf("请输入名字:>");
 	scanf("%s", p->data[p->count].name);     //数组名本来就是地址

@@ -3,11 +3,12 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <stdio.h>
 
 #define MAX        100
 #define MAX_NAME    20
-#define INIT_NUM        1
-#define ADD_NUM       1
+#define INIT_NUM        2
+#define ADD_NUM       3
 //人的信息 
 
 typedef struct 
@@ -60,3 +61,9 @@ void 	modify(Contact* p);
 
 //排序
 void sort(Contact* p);
+
+//保存
+int save(const Contact* p);
+
+//加载
+int LoadContact(Contact* p);

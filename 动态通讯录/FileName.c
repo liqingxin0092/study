@@ -57,6 +57,7 @@ int main()
 			sort(&con);
 			break;
 		case Exit:
+			save(&con);
 			distory_data(&con);
 			printf("ÍË³ö\n");
 			break;
