@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <assert.h>
 void printf_DToS(int d)
 {
      do
@@ -19,20 +20,38 @@ void printf_S(char *a)
 		printf_S(p);
 	}
 }
-int S_to_D(char *arr)
+int my_atoi(const char* str)
 {
-	char* p,*p2 ;
-	p = p2 = arr;
+	assert(str);
+	char* p, * p2, * p3;
+	p = p2 = p3 = str;
 	int n = 0;
-	int rel = 0;
-	while (*p != '\0')
+	long long rel = 0;
+
+	while (*p == ' ')
+	{
+		p++;
+		p2++;
+	}
+	while (*p2 == '-')
+	{
+		p++;
+		p3 = p2;
+		p2++;
+	}
+	while (*p != '\0' && *p >= '0' && *p <= '9')
 	{
 		p++;
 		n++;
-    }
-	while(n!=0)
+	}
+	while (n != 0)
+	{
 		rel += (*p2++ - '0') * pow(10, --n);
-
+		if (rel > INT_MAX)
+			return -1;
+	}
+	if (*p3 == '-')
+		rel *= -1;
 	return rel;
 }
 int main()
