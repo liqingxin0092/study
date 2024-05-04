@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<string.h>
+
+#define TRANSMIT(n)     ((((n)&0xaaaaaaaa)>>1)+(((n)&0x55555555)<<1)) //一个数的二进制位奇偶数位交换
+
 //一种思路，这个函数的功能是，找一个数组中的两个只出现了一次的数（其他数出现了2次）
 void find(int arr[], int size, int* e1,int * e2)
 {
