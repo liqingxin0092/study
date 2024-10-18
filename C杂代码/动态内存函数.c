@@ -3,13 +3,13 @@
 
 int main()
 {
-	//开辟
-	int* p = (int *)malloc(40);
+	// 开辟
+	int *p = (int *)malloc(40);
 	if (p == NULL)
 		return 1;
 
-	//扩容
-	int* ptr = (int*)realloc(p,80);
+	// 扩容
+	int *ptr = (int *)realloc(p, 80);
 	if (ptr == NULL)
 		return 2;
 	else
@@ -17,8 +17,8 @@ int main()
 		p = ptr;
 		ptr = NULL;
 	}
-	 
-	//使用
+
+	// 使用
 	for (int i = 0; i < 20; i++)
 	{
 		p[i] = i;
@@ -26,11 +26,11 @@ int main()
 
 	for (int i = 0; i < 20; i++)
 	{
-		printf("%d ",p[i]);
+		printf("%d ", p[i]);
 	}
 
-	//释放
+	// 释放
 	free(p);
-	p=NULL;
+	p = NULL;
 	return 0;
 }
